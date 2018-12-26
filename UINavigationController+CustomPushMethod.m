@@ -14,11 +14,18 @@
     if (viewController.launchMode == LaunchModeSingTask) {
         BOOL isExist = NO;
         
-        for (UIViewController *vc in self.viewControllers) {
-            if (vc != self.viewControllers.lastObject && [vc isKindOfClass:[viewController class]]) {
-                isExist = YES;
-                [self popToViewController:vc animated:YES];
-                break;
+        if ([self.viewControllers containsObject:viewController] && viewController != self.viewControllers.lastObject) {
+            isExist = YES;
+            [self popToViewController:viewController animated:YES];
+            
+        }else {
+            
+            for (UIViewController *vc in self.viewControllers) {
+                if (vc != self.viewControllers.lastObject && [vc isKindOfClass:[viewController class]]) {
+                    isExist = YES;
+                    [self popToViewController:vc animated:YES];
+                    break;
+                }
             }
         }
         if (!isExist) {
