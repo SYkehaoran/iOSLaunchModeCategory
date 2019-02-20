@@ -12,15 +12,18 @@
 static NSString * const kLaunchModeKey = @"kLaunchModeKey";
 
 @implementation UIViewController (LaunchMode)
+
 - (void)setLaunchMode:(LaunchMode)launchMode {
     objc_setAssociatedObject(self, &kLaunchModeKey, @(launchMode), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+
 - (LaunchMode)launchMode {
     return [objc_getAssociatedObject(self, &kLaunchModeKey) integerValue];
 }
+
 - (instancetype)initWithNavigationController:(UINavigationController *)navigationController {
     
-    for (UIViewController *vc in navigationController.viewControllers) {
+    for (UIViewController *vc in [navigationController.viewControllers reverseObjectEnumerator]) {
         if ([vc isKindOfClass:[self class]]) {
             if (vc.launchMode == LaunchModeSingTask) {
                 return vc;
@@ -31,4 +34,9 @@ static NSString * const kLaunchModeKey = @"kLaunchModeKey";
     
     return [self init];
 }
+
+- (void)viewWillAppearFromStack {
+    
+}
+
 @end

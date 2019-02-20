@@ -16,9 +16,12 @@ typedef NS_ENUM(NSUInteger, LaunchMode) {
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIViewController (LaunchMode)
+
 @property(nonatomic, assign) LaunchMode launchMode;
 ///如果控制器在导航栈中存在，则返回；不存在，则init
 - (instancetype)initWithNavigationController:(UINavigationController *)navigationController;
+
+- (void)viewWillAppearFromStack;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -11,8 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UINavigationController (CustomPushMethod)
-- (void)fm_showViewController:(UIViewController *)viewController animated:(BOOL)animated;
 
+- (void)fm_showViewController:(UIViewController *)viewController animated:(BOOL)animated;
 
 @end
 
