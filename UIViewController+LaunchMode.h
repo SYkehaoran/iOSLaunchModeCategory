@@ -3,7 +3,6 @@
 //  HXFundManager
 //
 //  Created by 柯浩然 on 2018/12/18.
-//  Copyright © 2018 China Asset Management Co., Ltd. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
